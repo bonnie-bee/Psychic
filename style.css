@@ -1,0 +1,22 @@
+/*body{
+    background-image: url(https://lssinfotech.files.wordpress.com/2011/05/clippy.jpg); 
+    background-position: right top;
+    background-repeat: no-repeat;
+}*/
+
+p{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.instructions{
+    font-size: 30px;
+}
+
+.info{
+    font-size: 20px;
+}
+
+img{
+    position: fixed;
+}

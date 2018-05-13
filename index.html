@@ -7,8 +7,11 @@
 
 <body>
     <div id="game">
-        <p class="instructions">Press any letter to guess which the computer is thinking</p>
+        <p class="instructions">Press any letter to guess what I'm thinking</p>
     </div>
+
+    <img src="clippy.jpg" alt="Here is a picture of Clippy- chipper bane of us all">
+
     <script type="text/javascript">
 
         let str = "abcdefghijklmnopqrstuvwxyz";
@@ -18,6 +21,18 @@
         var wins = 0;
         var losses = 0;
         
+        window.onload = function() {
+            let html = 
+                "<p class=instructions>Press any letter to guess what I'm thinking</p>" +
+                "<p class=info>You picked:  </p>" +
+                "<p class=info>I picked: </p>" +
+                "<p class=info> Wins: </p>" +
+                "<p class=info> Losses: </p>";
+                
+                document.querySelector("#game").innerHTML = html;
+            };
+
+
         document.onkeyup = function(event) {
             let computerPlay = letters[Math.floor(Math.random() * letters.length)];
 
@@ -30,20 +45,23 @@
             };
 
             if ((wins === 10) && (losses < 60 )) alert("You're pretty good at this");
-            if ((wins <5) && (losses === 100)) alert("I sure am unpredictable");
-            if ((wins === 1) && (losses >50)) alert("You did it!");
+            if ((wins <5) && (losses === 100)) alert("And you thought I was aggravating before");
+            //if ((losses > 50) && (wins ===1)) alert("You did it!");
+            
+
 
             let html = 
-                "<p>Press any letter to guess what I'm thinking</p>" +
-                "<p>You picked: " + userPlay + "</p>" +
-                "<p>The computer picked: " + computerPlay + "</p>" +
-                "<p> Wins: " + wins + "</p>" +
-                "<p> Losses: " + losses + "</p>";
+                "<p class=instructions>Press any letter to guess what I'm thinking</p>" +
+                "<p class=info>You picked: " + userPlay + "</p>" +
+                "<p class=info>I picked: " + computerPlay + "</p>" +
+                "<p class=info> Wins: " + wins + "</p>" +
+                "<p class=info> Losses: " + losses + "</p>";
             
             document.querySelector("#game").innerHTML = html;
         };
      
     </script>
-
+    
     
 </body>
+</html>
