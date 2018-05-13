@@ -1,0 +1,49 @@
+<!doctype html>
+<head lang="en-us">
+    <meta charset="UTF-8">
+    <Title>Psychic Game</Title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="game">
+        <p class="instructions">Press any letter to guess which the computer is thinking</p>
+    </div>
+    <script type="text/javascript">
+
+        let str = "abcdefghijklmnopqrstuvwxyz";
+        let letters = str.split("");
+
+    
+        var wins = 0;
+        var losses = 0;
+        
+        document.onkeyup = function(event) {
+            let computerPlay = letters[Math.floor(Math.random() * letters.length)];
+
+            let userPlay = event.key.toLowerCase();
+
+            if (computerPlay === userPlay){
+                wins++
+            } else{
+                losses++
+            };
+
+            if ((wins === 10) && (losses < 60 )) alert("You're pretty good at this");
+            if ((wins <5) && (losses === 100)) alert("I sure am unpredictable");
+            if ((wins === 1) && (losses >50)) alert("You did it!");
+
+            let html = 
+                "<p>Press any letter to guess what I'm thinking</p>" +
+                "<p>You picked: " + userPlay + "</p>" +
+                "<p>The computer picked: " + computerPlay + "</p>" +
+                "<p> Wins: " + wins + "</p>" +
+                "<p> Losses: " + losses + "</p>";
+            
+            document.querySelector("#game").innerHTML = html;
+        };
+     
+    </script>
+
+    
+</body>
